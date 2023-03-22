@@ -1,6 +1,6 @@
 import os
 from os.path import isdir, join
-from utility import compare
+from utility import compare, compare_and_copy
 
 
 def compare_using_set(path_dir1: str, path_dir2: str):
@@ -19,28 +19,16 @@ def recursive_list_dir(path: str):
     pass
 
 
-
-
 def main():
+    path = "C:/Users/k.korwiel/Desktop/P2P5CompareThisFiles"
+    path_dir_r = join(path, 'Clean')
+    path_dir_l = join(path, 'PoUpgradzie')
+    path_dir_target = join(path, 'TARGET')
 
-    # path = "C:/Users/k.korwiel/Desktop/P2P5CompareThisFiles"
-    # path_dir_L = join( path, 'PrzedUpgradem' )
-    # path_dir_R = join( path, 'Clean' )
-    #
-    # list_dir_L = os.listdir(path_dir_L)
-    # list_dir_R = os.listdir(path_dir_R)
-    #
-    #
-    # compare(list_dir_L, list_dir_R,path_dir_L, path_dir_R)
+    diff_dic = compare_and_copy(path_dir_l, path_dir_r,path_dir_target,0)
 
-    l1 = ['a', 'b', 'c', 'd', 'h', 'i', 'j', 'k']
-    l2 = ['a', 'b', 'g']
-
-    result_dic = compare_two_list(l1, l2)
-    print("============================")
-    print(result_dic)
+    print(diff_dic)
 
 
 if __name__ == '__main__':
     main()
-
